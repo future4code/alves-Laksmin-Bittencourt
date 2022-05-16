@@ -98,15 +98,14 @@ return boleanin
 // EXERCÍCIO 10
 function retornaUltimoElemento(array) {
   // implemente sua lógica aqui
-let tamanho = array.[length2]
-return tamanho
-  
+   array = [array.length-1]
+return array
 }
 
 // EXERCÍCIO 11
 function trocaPrimeiroEUltimo(array) {
   // implemente sua lógica aqui
-
+let troca = 
 }
 
 // EXERCÍCIO 12
