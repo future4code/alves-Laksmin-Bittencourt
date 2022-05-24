@@ -79,6 +79,7 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
         ladoA === ladoC
         console.log("Isóceles")
     }
+    //
     
 }
 
