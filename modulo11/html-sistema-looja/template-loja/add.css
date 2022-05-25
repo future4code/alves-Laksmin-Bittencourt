@@ -1,0 +1,26 @@
+body {
+    background-color: rgb(116, 3, 3);
+}
+
+header {
+    text-align: center;
+    background-color: black;
+    color: rgb(116, 3, 3);
+}
+
+nav {
+    text-align: center;
+
+}
+
+h2 {
+    text-align: center;
+    background-color: black;
+    color: rgb(116, 3, 3);
+}
+
+form {
+    text-align: center;
+    background-color: black;
+    color: rgb(116, 3, 3);
+}
