@@ -5,7 +5,11 @@
 
 // EXERCÍCIO 01
 function retornaTamanhoArray(array) {
+<<<<<<< HEAD
    return array.length
+=======
+   return array.length()
+>>>>>>> master
 }
 
 // EXERCÍCIO 02
@@ -15,6 +19,7 @@ function retornaArrayInvertido(array) {
 
 // EXERCÍCIO 03
 function retornaArrayOrdenado(array) {
+<<<<<<< HEAD
    return array.sort((a, b) => a - b)
 } 
 
@@ -81,6 +86,43 @@ function classificaTriangulo(ladoA, ladoB, ladoC) {
     }
     //
     
+=======
+    return array.sort((a,b) => a - b)
+}
+
+// EXERCÍCIO 04
+function retornaNumerosPares(array) {
+  let soPares = []
+  for(let i = 0; i < array.length ; i++){
+      if( array[i] % 2 === 0) {
+        } soPares.push(array[i])
+    }
+} console.log(soPares)
+
+// EXERCÍCIO 05
+function retornaNumerosParesElevadosADois(array) {
+ 
+}
+
+// EXERCÍCIO 06
+function retornaMaiorNumero(array) {
+  
+}
+
+// EXERCÍCIO 07
+function retornaObjetoEntreDoisNumeros(num1, num2) {
+
+}
+
+// EXERCÍCIO 08
+function retornaNPrimeirosPares(n) {
+   
+}
+
+// EXERCÍCIO 09
+function classificaTriangulo(ladoA, ladoB, ladoC) {
+
+>>>>>>> master
 }
 
 // EXERCÍCIO 10
