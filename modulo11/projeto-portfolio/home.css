@@ -1,0 +1,69 @@
+body {
+    background-color: black;
+    font-size:20px;
+}
+
+img {
+    margin-top: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+
+}
+
+#blococabeca {
+    color: white;
+    text-align: center;
+    margin-top: 150px;
+}
+
+#blobocabeca>h1 {
+    font-family: 'Reggae One', cursive;
+    color: white;
+}
+
+#blococabeca>h2 {
+    font-family: 'Wallpoet', cursive;
+    color: white;
+}
+
+#blococabeca>h3 {
+    font-family: 'Stardos Stencil', cursive;
+    color: white;
+}
+
+header {
+    padding: 2px;
+    border: 90px; color: black;
+    position: fixed;
+    top: 0;
+    background-color: rgba(70, 3, 97, 0.822);
+    text-align: right;
+    width: 100%;
+
+}
+
+footer {
+    padding: 5px;
+    border: 50px; color: black;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    background-color: rgba(246, 250, 2, 0.808);  
+    width: 100%;
+}
+
+.texto {
+   
+    font-family: 'Bungee Inline', cursive;
+    color: white;
+    margin-top: 10%;
+    margin-right: 80px;
+    margin-left: 80px;
+    margin-bottom: 10%;
+    text-align: center;
+
+}
