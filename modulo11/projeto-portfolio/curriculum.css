@@ -1,0 +1,185 @@
+body {
+    background-color: black;
+    font-size:20px;
+    margin-left: 0%;
+    margin-right: 1%;
+    
+}
+
+#header{
+    
+    margin-top: 20px;
+    margin-right: 25% ;
+    padding: 0%;
+    border: 100px; color: rgba(0, 0, 0, 0.267);
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.774);
+    text-align: right;
+    width: 100%;
+
+
+}
+
+#header>button {
+
+    font-family: 'Wallpoet', cursive;
+    background-color: black;
+    border-color: rgb(172, 0, 252);
+    color:  rgb(172, 0, 252);
+    
+}
+
+button :active {
+    background-color:  rgb(172, 0, 252);
+    color: black;
+    border-color: black;
+}
+
+button :hover {
+
+    background-color:  rgb(172, 0, 252);
+    color: black;
+    border-color: rgb(172, 0, 252);
+    
+    
+}
+
+#exp1 {
+
+    margin-top: 15%;
+    text-align: center;
+    margin-bottom: 0%;
+
+}
+
+#exp>p {
+
+    margin-bottom: 2%;
+
+}
+
+#ornamento>img {
+
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-top: 0%;
+    margin-left: 31%;
+    
+}
+
+#exp2 {
+
+    margin-top: 15%;
+    text-align: center;
+
+}
+
+h1 {
+
+    margin-top: 3%;
+    margin-left: 10%;
+    margin-right: 10%;
+    text-align: center;
+    background-color: rgba(172, 0, 252, 0.397);
+    font-family: 'Kumar One', cursive;
+    color:  black
+}
+
+h2 {
+
+    color: rgb(172, 0, 252);
+    font-family: 'Wallpoet', cursive;
+
+}
+
+p {
+
+    font-family: 'IM Fell French Canon SC', serif;
+    color: rgb(172, 0, 252);
+    margin-top: 3%;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+    text-align: center;
+
+}
+
+#ornamentomaquina>img {
+
+    margin-top: 8%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: 31%;
+
+}
+
+#exp3 {
+
+    font-family: 'IM Fell French Canon SC', serif;
+    color: rgb(172, 0, 252);
+    margin-top: 15%;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+    text-align: center;
+
+}
+
+#labenu {
+
+    margin-top: 8%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: 20%;
+
+}
+
+img {
+
+    margin-top: 8%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin-left: 30%;
+
+
+}
+
+#footer {
+    
+    margin-top: 50px;
+    margin-right: 25% ;
+    padding: 5%;
+    border: 100px; color: rgba(0, 0, 0, 0.267);
+    position: sticky; 
+    background-color: rgba(0, 0, 0, 0.774);
+    text-align: right;
+    width: 100%;
+
+    
+    
+}
+
+.media-objetct {
+
+    text-align: center;
+    color: blueviolet;
+}
+
+.media-object1 {
+
+    text-align: center;
+
+}
