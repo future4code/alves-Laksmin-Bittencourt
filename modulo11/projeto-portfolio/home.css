@@ -1,0 +1,152 @@
+body {
+    background-color: black;
+    font-size:20px;
+    margin-left: 0%;
+    margin-right: 0%;
+    
+}
+
+img {
+    margin-top: 80%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+
+}
+
+#blococabeca {
+
+    text-align: center;
+    margin-top: 70px;
+    color: white;
+    margin-bottom: 90px;
+
+}
+
+#blococabeca>h2 {
+
+    font-family: 'Bilbo Swash Caps', cursive;
+    
+}
+
+h1 {
+
+    text-align: center;
+    color: rgb(24, 151, 7);
+    font-family: 'Kumar One', cursive;
+
+}
+
+#ornamentocima {
+
+    margin-top: 0%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+
+}
+
+#header {
+    padding: 0%;
+    border: 100px; color: rgba(0, 0, 0, 0.267);
+    position: sticky;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.774);
+    text-align: right;
+    width: 100%;
+    
+
+}
+
+#header>button {
+
+    font-family: 'Wallpoet', cursive;
+    background-color: black;
+    border-color: rgba(134, 247, 6, 0.918);
+    color:  rgba(134, 247, 6, 0.918);
+    margin-right: 20px;
+    margin-top: 20px;
+    
+}
+
+button :active {
+    background-color:  rgb(24, 151, 7);
+    color: black;
+    border-color: black;
+}
+
+#header>h3 {
+
+    font-family: 'Geostar Fill', cursive;
+    text-align: center;
+    position: fixed;
+
+}
+
+#ornamentomeio>img {
+    
+    margin-top: 10%;
+    max-width: 500px;
+    max-height: 500px;
+    width: auto;
+    height: auto;
+    display: block;
+
+}
+
+.texto {
+   
+    font-family: 'IM Fell French Canon SC', serif;
+    color: rgb(24, 151, 7);
+    margin-top: 10%;
+    margin-right: 20%;
+    margin-left: 20%;
+    margin-bottom: 10%;
+    text-align: center;
+
+}
+
+#ornamentorodape {
+
+    margin-top: 0%;
+    margin-bottom: 50%;
+    max-width: 900px;
+    max-height: 900px;
+    width: auto;
+    height: auto;
+    display: block;
+    margin: 0px auto;
+    
+}
+
+#footer {
+    
+    padding: 5px;
+    background-color: rgba(133, 245, 4, 0.24);
+    color: black; 
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    
+    
+}
+
+#footer>img {
+
+    text-align: left;
+
+}
+
+.media-objetct {
+    text-align: center;
+}
+
+.media-object1 {
+    text-align: center;
+}
