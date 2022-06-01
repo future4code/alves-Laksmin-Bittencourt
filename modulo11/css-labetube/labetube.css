@@ -1,0 +1,42 @@
+* {
+    padding: auto;
+    margin: 0%;
+
+
+}
+
+.conteinercima {
+
+    display: grid;
+    height: 50px;
+    grid-template-columns: 3fr;
+    grid-template-rows: 20vh 70vh ;
+    grid-template-areas: "s" 
+                         "m";
+
+}
+
+section {
+
+    
+    background-color: orange;
+    height: 100px;
+    grid-area: s; 
+    
+}
+
+
+main {
+
+    color: white;
+    background-color: black;
+    height: 100px;
+    grid-area: m;
+    
+
+
+    
+
+
+
+}
