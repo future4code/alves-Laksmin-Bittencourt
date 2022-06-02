@@ -1,42 +1,95 @@
 * {
-    padding: auto;
+
     margin: 0%;
-
-
-}
-
-.conteinercima {
-
-    display: grid;
-    height: 50px;
-    grid-template-columns: 3fr;
-    grid-template-rows: 20vh 70vh ;
-    grid-template-areas: "s" 
-                         "m";
+    padding: 0%;
 
 }
 
-section {
+header {
 
-    
-    background-color: orange;
-    height: 100px;
-    grid-area: s; 
-    
+    background-color: rgb(230, 8, 8);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px;
+    max-width: 100%;
+
 }
 
+header>h2 {
 
-main {
+    margin-left: 10px;
+
+}
+
+button {
 
     color: white;
     background-color: black;
-    height: 100px;
-    grid-area: m;
+    margin-right: 10px;
+    padding: 5px;
+    border: 2px solid; color: white;
+    border-radius: 2px;
     
+}
 
+footer {
 
+    background-color: red;
+    display: flex;
+    position: fixed;
+    bottom: 0 ;
+    min-width: 99%;
+    justify-content: center;
     
+}
 
+footer>h3 {
 
+    padding: 10px;
+
+}
+
+main {
+
+    padding: 20%;
+    display: flex;
+    border: solid 2px; color: black;
+    justify-content: center;
+    column-gap: 50px;
+    row-gap: 60px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    min-width: 500px;
+
+}
+
+.cards {
+    
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 50px;
+    border: solid 2px; color: black;
+    column-gap: 50px;
+    row-gap: 60px;
+    flex-wrap: wrap;
+    max-width: 500px;
+    min-width: 500px;
+       
+}
+
+.cards>p {
+    
+    border: solid 2px; color: black;
+    border-radius: 2px ;
+    
+}
+
+.cards>a {
+
+    max-height: 100%;
+    max-width: 100%;
+    display: block;
 
 }
