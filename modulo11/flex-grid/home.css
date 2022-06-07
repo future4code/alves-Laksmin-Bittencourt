@@ -1,0 +1,58 @@
+* {
+    margin: 0%
+}
+
+:default {
+
+     display: flex;
+
+}
+
+
+img {
+
+    width: 30px;
+    height: 30px;
+
+}
+
+.containerdoheader {
+
+    background-color: mediumvioletred;
+    max-width: 100%;
+    border: 0%; 
+    height: 50px;
+    margin: 0%;
+    display: flex;
+    justify-content: space-between ;
+    align-items: center;
+    
+}
+
+.containerdoheader>cake {
+    
+    row-gap: 50px;
+
+}
+
+.containerdoheader>titulo {
+
+    row-gap: 50px;
+}
+
+.rodape {
+
+    position: fixed;
+    margin-top: 40%;
+    background-color:  mediumvioletred;;
+    height: 50px;
+    width: 100%;
+    display: flex;
+    align-items: center;
+
+}
+
+h3 {
+
+
+}
