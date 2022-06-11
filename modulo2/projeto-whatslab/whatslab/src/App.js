@@ -3,34 +3,34 @@ import './App.css';
 import CardGrande from './Componentes/CardGrande';
 import CardInput from './Componentes/CardInput';
 
-// class App extends React.Component {
+class App extends React.Component {
 
+    render() {
 
+  return (
+  <div className="App">
 
-//   return (
-//   <div className="App">
+    <div>
+    <p>{this.state.ValorInputMensagem}</p>
+    </div>
 
-//     <div>
-//     <p>{this.state.ValorInputMensagem}</p>
-//     </div>
+    <input
+    value={this.state.valorInputUsuario}
+    OnChange={this.oneChangeInputUsuario}
+    placeholder={"Seu nome"}
+    />
 
-//     <input
-//     value={this.state.valorInputUsuario}
-//     OnChange={this.oneChangeInputUsuario}
-//     placeholder={"Seu nome"}
-//     />
+    <input
+    value={this.state.ValorInputMensagem}
+    OnChange={this.oneChangeInputMensagem}
+    placeholder={"digite sua mensagem..."}
+    />
 
-//     <input
-//     value={this.state.ValorInputMensagem}
-//     OnChange={this.oneChangeInputMensagem}
-//     placeholder={"digite sua mensagem..."}
-//     />
+    <buttom>{"ENVIAR"}</buttom>
 
-//     <buttom>{"ENVIAR"}</buttom>
+  </div>
 
-//   </div>
-
-//   )
-
-// }
-// export default App;//
+  )
+}
+}
+export default App;

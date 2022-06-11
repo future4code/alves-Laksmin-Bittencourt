@@ -29,7 +29,7 @@ class CardMensagemImpressa extends React.Component {
     
     };
 
-    // render() {
+    render() {
 
         const listaDeMensagens = this.state.ValorInputMensagem.map((ValorInputMensagem) => {
 
@@ -42,5 +42,5 @@ class CardMensagemImpressa extends React.Component {
 
         })
 
-    // }
-export default CardGrande;
+    }
+    export default CardGrande;

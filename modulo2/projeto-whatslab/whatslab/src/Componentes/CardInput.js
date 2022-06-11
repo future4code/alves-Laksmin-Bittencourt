@@ -29,7 +29,7 @@ class CardUsuarioIpresso extends React.Component {
     
     };
 
-    // render() {
+    render() {
 
         const listaDeUsuarios = this.state.ValorInputUsuario.map((ValorInputUsuario) => {
 
@@ -42,5 +42,5 @@ class CardUsuarioIpresso extends React.Component {
 
         })
 
-    // }
+    }
 export default CardInput;
