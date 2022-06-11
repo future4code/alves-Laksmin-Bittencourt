@@ -2,22 +2,18 @@ import React from 'react';
 
 class CardMensagemImpressa extends React.Component {
 
-    state = {
+  state = {
         
-        ValorInputMensagem: " "
-      }
+    ValorInputMensagem: " "
+  };
+
+  adicionaConversa = () => {
     
-    }
+    const novaConversa = {
     
-    adicionaConversa = () => {
+      mensagem: this.state.ValorInputMensagem
     
-      const novaConversa = {
-    
-        mensagem: this.state.ValorInputMensagem
-    
-      }
-    
-    }
+    };
     
     const novaMensagem = [...this.state.novaConversa];
     
@@ -25,22 +21,32 @@ class CardMensagemImpressa extends React.Component {
     
     onChangeInputMensagem = (event) => {
     
-      this.setState({ ValorInputMensagem: event.target.value})
-    
-    };
-
-    render() {
-
-        const listaDeMensagens = this.state.ValorInputMensagem.map((ValorInputMensagem) => {
-
-            return (
-                <div>
-                {ValorInputMensagem}
-                </div>
-
-            );
-
-        })
-
+    this.setState({ ValorInputMensagem: event.target.value})
     }
-    export default CardGrande;
+
+  };
+};
+
+render() {
+
+  const listaDeMensagens = this.state.ValorInputMensagem.map((ValorInputMensagem) => {
+
+    return (
+      <div>
+        {ValorInputMensagem}
+      </div>
+
+    );
+
+  })
+
+  return (
+
+    <div>
+      {listaDeMensagens}
+    </div>
+
+  )
+
+};
+export default CardGrande;

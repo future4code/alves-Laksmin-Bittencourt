@@ -2,45 +2,54 @@ import React from 'react';
 
 class CardUsuarioIpresso extends React.Component {
 
-    state = {
-        
-        ValorInputUsuario: " "
-      }
+  state = {
+    
+    ValorInputUsuario: " "
+  };
+    
+  
+    
+  adicionaUsuario = () => {
+    
+    const novoUsuario = {
+    
+      Usuario: this.state.ValorInputUsuario
     
     }
     
-    adicionaUsuario = () => {
-    
-      const novoUsuario = {
-    
-        nome: this.state.ValorInputNome
-    
-      }
-    
-    }
-    
-    const novaPessoa = [...this.state.novoUsuario];
+    const novaPessoa = [...this.state.novoUsuario]
     
     this.setState({ValorInputUsuario})
     
     onChangeInputUsuario = (event) => {
     
-      this.setState({ ValorInputUsuario: event.target.value})
-    
-    };
-
-    render() {
-
-        const listaDeUsuarios = this.state.ValorInputUsuario.map((ValorInputUsuario) => {
-
-            return (
-                <div>
-                {ValorInputUsuario}
-                </div>
-
-            );
-
-        })
+    this.setState({ ValorInputUsuario: event.target.value})
 
     }
+
+  }
+
+}
+  
+render() {
+
+  const listaDeUsuarios = this.state.ValorInputUsuario.map((ValorInputUsuario) => {
+
+    return (
+      <h5>
+        {ValorInputUsuario}
+      </h5>
+
+    );
+
+  })
+
+  return (
+    <div>
+      {listaDeUsuarios}
+    </div>
+  )
+
+}
+
 export default CardInput;
