@@ -1,49 +1,50 @@
-import './App.css';
-import React from "react";
-import axios from "axios";
+import React from 'react';
+import TelaCadastro from './Components/TelaCadastro';
+import TelaUsuarios from './Components/TelaUsuarios';
 
-export default class Usuarios extends React.Component {
+export default class App extends React.Component {
   state = {
-    name: " ",
-    email: " "
+
+    telaInicial: "cadastro"
+
   }
 
-  criarUsuario = () => {
-    axios
-    .get(
-      `https://us-central1-labenu-apis.cloudfunctions.net/labenusers/users`,
-      {
-      headers: {
-      Authorization: "Laksmin-Bittencourt-Alves"
-      }
+  escolheTela = () => {
+    switch (this.state.telaInicial) {
+      case "cadastro":
+        return <TelaCadastro trocarParaUsuarios={this.trocarParaUsuarios}/>
 
-      }
-        
-    )
-    .then((resposta) => {
-    this.setState({ nome: resposta.data.result});
-    })
-    .catch(() => {
-      console.log(erro.response);
-    });
+      case "Usuarios":
+        return <TelaUsuarios trocarParaCadastro={this.trocarParaCadastro}/>
+      
+      default: 
+        return <div>Erro! Página não encontrada</div>
+    
+    }
+
+  }
+
+  trocarParaCadastro = () => {
+    this.setState({telaInicial: "cadastro"})
 
   };
 
-  componentDidMount() {
-    this.criarUsuario();
-  }
+  trocarParaUsuarios = () => {
+    this.setState({telaInicial: "Usuarios"})
+
+  };
 
   render () {
+
     return (
-      <main>
-        <h4>{this.props.Usuarios.name}</h4>
-        {this.state.name.map((name) => {
-        return <p key={nome.id}>{name.name}</p>
-        })}
-      </main>
-    );
-    
+
+      <div>
+
+        {this.escolheTela()}
+
+      </div>
+
+    )
   }
 
 }
-
