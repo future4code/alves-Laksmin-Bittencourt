@@ -1,5 +1,45 @@
 import axios from 'axios';
 import React from 'react';
+import Styled from 'styled-components';
+
+const CardCadastro = Styled.div`
+    color: yellow;
+    background-color: black;
+    padding: 175px;
+    margin: 10px;
+    
+`
+const BotaoTrocarTela = Styled.div `
+    color: yellow;
+    border: 1px solid yellow;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 150px;
+
+`
+const Input = Styled.button `
+    background-color: black ;
+    color: yellow;
+    border: 1px solid yellow;
+    border-radius: 15px;
+    padding: 20px;
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    
+`
+const Cadastrar = Styled.button `
+    color: yellow;
+    border: 1px solid yellow;
+    background-color: black;
+    border-radius: 20px;
+    padding: 10px;
+    max-width: 150px;
+    margin-top: 25px;
+
+
+`
 
 export default class TelaCadastro extends React.Component {
     state = {
@@ -45,25 +85,26 @@ export default class TelaCadastro extends React.Component {
 
     render () {
 
+
         return (
 
-            <div>
+            <CardCadastro>
 
-                <button onClick={this.props.trocarParaUsuarios}>Ir para lista de usuarios</button>
+                <BotaoTrocarTela onClick={this.props.trocarParaUsuarios}>Ir para lista de usuarios</BotaoTrocarTela>
                 <h2>Cadastro</h2>
-                <input 
+                <Input 
                     placeholder='Nome'
                     value={this.state.nome}
                     onChange={this.handleNome}
                 />
-                <input 
+                <Input 
                     placeholder='E-mail'
                     value={this.state.email}
                     onChange={this.handleEmail}
                 />
-                <button onClick = {this.salvarCadastro}>Cadastrar</button>
+                <Cadastrar onClick = {this.salvarCadastro}>Cadastrar</Cadastrar>
 
-            </div>
+            </CardCadastro>
         )
 
     }
