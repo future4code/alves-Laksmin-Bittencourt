@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import styled from "styled-components";
 import Perfil from "./Components/SessaoPerfis/Perfis";
 import Matches from "./Components/SessaoMatches/Matches";
@@ -9,38 +9,27 @@ const Main = styled.main`
   border: solid black;
   border-radius: 15px;
   padding: 180px;
-  width: 4%;
+  width: 50px;
+  height: 90px;
   margin-left: 450px;
   margin-top: 85px;
   display: flex;
-  align-items: flex-start;
-`
-
-const CardCima = styled.div`
-  width: 220px;
-  margin-top: 0px;
-  border: solid purple;
-  display: flex;
-  align-items: stretch;
-  justify-content: space-between;
-
-`
-
-const H1 = styled.h1`
-  display: flex;
-  flex-direction: start;
+  flex-direction: column;
+  
   
 `
-const Butao = styled.button`
- color: purple;
-`
-const Hr = styled.hr`
-  width: 200px;
-`
 
-function App() {
+export default function App() {
 
   const [telaAtual, setTelaAtual] = useState("perfil")
+
+  const irParaPerfil = () => {
+    setTelaAtual("perfil")
+  }
+
+  const irParaMatches = () => {
+    setTelaAtual("matches")
+  }
 
   const trocarTela = () => {
 
@@ -60,32 +49,14 @@ function App() {
     }
   }
 
-  const irParaPerfil = () => {
-    setTelaAtual({telaAtual: "perfil"})
-  }
-
-  const irParaMatches = () => {
-    setTelaAtual({telaAtual: "matches"})
-  }
-
   return (
     
     <Main>
 
-      <CardCima>
-
-      <H1>astromatch</H1> 
-      <Butao>Ver Matches</Butao>
-      
-      </CardCima>
-
-      <Hr></Hr>
-
-      {trocarTela}
+      {trocarTela()}
 
     </Main>
 
   );
 }
 
-export default App;

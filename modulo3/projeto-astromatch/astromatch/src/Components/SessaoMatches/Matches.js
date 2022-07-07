@@ -5,12 +5,19 @@ const Divona = styled.div`
 border: solid black;
 `
 
-function Matches() {
+export default function Matches(props) {
 
     return(
-        <Divona>Oi</Divona>
+        <Divona>
+
+            <div>
+                
+                <h1>astroMatch</h1>
+                <button onClick={() => props.irParaPerfis}>Perfis</button>
+
+            </div>
+            
+
+        </Divona>
     )
 }
-
-
-export default Matches;
