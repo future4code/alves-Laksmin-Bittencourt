@@ -1,30 +1,13 @@
 import React, { useState, useEffect } from "react";
-import styled from "styled-components";
 import Perfil from "./Components/SessaoPerfis/Perfis";
 import Matches from "./Components/SessaoMatches/Matches";
 
-// Estilização do card mãe, header, footer e botoes:
-
-const Main = styled.main`
-  border: solid black;
-  border-radius: 15px;
-  padding: 180px;
-  width: 50px;
-  height: 90px;
-  margin-left: 450px;
-  margin-top: 85px;
-  display: flex;
-  flex-direction: column;
-  
-  
-`
-
 export default function App() {
 
-  const [telaAtual, setTelaAtual] = useState("perfil")
+  const [telaAtual, setTelaAtual] = useState("perfis")
 
   const irParaPerfil = () => {
-    setTelaAtual("perfil")
+    setTelaAtual("perfis")
   }
 
   const irParaMatches = () => {
@@ -34,11 +17,11 @@ export default function App() {
   const trocarTela = () => {
 
     switch (telaAtual) {
-      case "perfil":
+      case "perfis":
         return (
         <Perfil irParaMatches={irParaMatches}/>
         )
-      case "Matches":
+      case "matches":
         return (
         <Matches irParaPerfil={irParaPerfil}/>
         )
@@ -51,11 +34,11 @@ export default function App() {
 
   return (
     
-    <Main>
-
+    <main>
+      
       {trocarTela()}
-
-    </Main>
+    
+    </main>
 
   );
 }
