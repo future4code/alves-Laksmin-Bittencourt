@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import {useNavigate} from "react-router-dom";
+import {goBack, goToForm} from "../Routes/Cordinator";
 
 const Divzona = styled.div`
     border: solid black 2px;
@@ -18,19 +19,10 @@ export default function ListTripsPage() {
 
     const navigate = useNavigate()
 
-    const goBack = () => {
-        navigate("/")
-    }
-
-    const goToForm = () => {
-        navigate("/Form")
-    }
-    
-
     return(
         <Divzona>
-            <button onClick={goBack}>Voltar</button>
-            <button onClick={goToForm}>Inscrever-se</button>
+            <button onClick={() => goBack(navigate, "/")}>Voltar</button>
+            <button onClick={() => goToForm(navigate, "/Form")}>Inscrever-se</button>
             <p>Lista De Viagens</p>
         </Divzona>
     )

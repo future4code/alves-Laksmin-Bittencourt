@@ -8,6 +8,7 @@ import LoginPage from "../Pages/LoginPage";
 import TripDetailsPage from "../Pages/TripDetailsPage";
 
 
+
 export  const Router = () => {
     return(
 
@@ -16,12 +17,12 @@ export  const Router = () => {
             <Routes>
 
                 <Route index element={<HomePage/>}/>
-                <Route path="ListTrip/:ListaDeViagens" element={<ListTripsPage/>}/>
-                <Route path="Admin/:Administrador" element={<AdminPage/>}/>
-                <Route path="Form/:Formulario" element={<ApplicationFormPage/>}/>
-                <Route path="CreateTrip/:CriarViagens" element={<CreateTripPage/>}/>
-                <Route path="Login/:Logar" element={<LoginPage/>}/>
-                <Route path="Details/:Detalhes" element={<TripDetailsPage/>}/>
+                <Route path="ListTrip" element={<ListTripsPage/>}/>
+                <Route path="Admin" element={<AdminPage/>}/>
+                <Route path="Form" element={<ApplicationFormPage/>}/>
+                <Route path="CreateTrip" element={<CreateTripPage/>}/>
+                <Route path="Login" element={<LoginPage/>}/>
+                <Route path="Details" element={<TripDetailsPage/>}/>
 
 
             </Routes>
