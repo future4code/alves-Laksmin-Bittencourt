@@ -3,6 +3,10 @@
         navigate("ListTrip")
     }
 
+    export const goToAdminPage = (navigate) => {
+        navigate("Admin")
+    }
+
     export const goBack = (navigate) => {
         navigate("/")
     }
@@ -13,4 +17,8 @@
      
     export const goBackAgain = (navigate) => {
         navigate(-1)
+    }
+
+    export const goBackHome = (navigate) => {
+        navigate("/")
     }

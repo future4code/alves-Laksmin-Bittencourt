@@ -22,7 +22,7 @@ export default function ListTripsPage() {
     return(
         <Divzona>
             <button onClick={() => goBack(navigate, "/")}>Voltar</button>
-            <button onClick={() => goToForm(navigate, "/Form")}>Inscrever-se</button>
+            <button onClick={() => goToForm(navigate, "Form")}>Inscrever-se</button>
             <p>Lista De Viagens</p>
         </Divzona>
     )

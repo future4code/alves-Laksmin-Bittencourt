@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import {useProtectedPage} from "./TripDetailsPage";
 
 const Divzona = styled.div`
     border: solid black 2px;
@@ -14,6 +15,8 @@ const Divzona = styled.div`
 `
 
 export default function CreateTripPage() {
+    useProtectedPage()
+
     return(
         <Divzona>
             <h1>Criar Viagens</h1>
