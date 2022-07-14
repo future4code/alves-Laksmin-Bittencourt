@@ -37,14 +37,14 @@ export default function LoginPage() {
         console.log(email, password)
         
         const body = {
-            email: email,
-            password: password
+            email: "email",
+            password: "password"
         }
-        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/:darvas/login', body
+        axios.post('https://us-central1-labenu-apis.cloudfunctions.net/labeX/laksmin/login', body
         ).then((response) => {
             console.log('Olá!:', response.data)
         
-        }).cath((err) => {
+        }).catch((err) => {
             console.log('Ops!:', err.response)
         })
     }
