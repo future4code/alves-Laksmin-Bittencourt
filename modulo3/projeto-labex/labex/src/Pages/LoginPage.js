@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useState } from "react";
-import { goBackAgain } from "../Routes/Cordinator"; 
+import { goBackHome } from "../Routes/Cordinator"; 
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
 
@@ -43,7 +43,7 @@ export default function LoginPage() {
         ).then((response) => {
             console.log('Olá!:', response.data.token)
             localStorage.setItem('token', response.data.token)
-            navigate("/Details")
+            navigate("/Admin")
 
         }).catch((err) => {
             console.log('Ops!:', err.response)
@@ -56,7 +56,7 @@ export default function LoginPage() {
 
         <Divzona>
 
-            <button onClick={() => goBackAgain(navigate, -1)}>Voltar</button>
+            <button onClick={() => goBackHome(navigate, "/")}>Voltar</button>
             <h1>Login</h1>
             <form onSubmit={onSubmitLogin}>
                 <input 

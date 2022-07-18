@@ -22,3 +22,7 @@
     export const goBackHome = (navigate) => {
         navigate("/")
     }
+
+    export const goToDetails = (navigate) => {
+        navigate("Details")
+    }

@@ -7,9 +7,8 @@ import ListTripsPage from "../Pages/ListTripsPage";
 import LoginPage from "../Pages/LoginPage";
 import TripDetailsPage from "../Pages/TripDetailsPage";
 
+export const Router = () => {
 
-
-export  const Router = () => {
     return(
 
         <BrowserRouter>
@@ -18,10 +17,10 @@ export  const Router = () => {
 
                 <Route index element={<HomePage/>}/>
                 <Route path="ListTrip" element={<ListTripsPage/>}/>
-                <Route path="Admin" element={<AdminPage/>}/>
                 <Route path="Form" element={<ApplicationFormPage/>}/>
-                <Route path="CreateTrip" element={<CreateTripPage/>}/>
                 <Route path="Login" element={<LoginPage/>}/>
+                <Route path="Admin" element={<AdminPage/>}/>
+                <Route path="CreateTrip" element={<CreateTripPage/>}/>
                 <Route path="Details" element={<TripDetailsPage/>}/>
 
 
