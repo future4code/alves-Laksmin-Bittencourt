@@ -75,12 +75,13 @@ function Post(props) {
   if (comentando) {
     componenteComentario = <SecaoComentario aoEnviar={aoEnviarComentario} />;
   }
+  
 
   return (
     <PostContainer>
       <PostHeader>
-        <UserPhoto src={props.fotoUsuario} alt={"Imagem do usuario"} />
-        <p>{props.nomeUsuario}</p>
+        <UserPhoto src={props.fotoUser} alt={"Imagem do usuario"} />
+        <p>{props.nomeUser}</p>
       </PostHeader>
 
       <PostPhoto src={props.fotoPost} alt={"Imagem do post"} />
