@@ -1,79 +1,99 @@
 import './App.css';
-import React, { useState } from 'react';
+import { useState } from 'react';
 import ChatList from './Components/ChatPage/ChatList.js';
 import styled from 'styled-components';
 
 const MainContainer = styled.main`
-  border: solid black 2px;
+  border: solid black 5px;
+  background-color: black;
+  border-radius: 10px;
   width: 500px;
-  height: 500px;
-  margin-top: 50px;
+  height: 550px;
+  margin-top: 30px;
+  margin-left: 405px;
+`
+const CardInputs = styled.div`
+  background-color: green;
+  border: solid green 5px;
+  border-radius: 15px;
+  height: 45px;
+  width: 400px;
+  margin-top: 30px;
+  margin-left: 45px;
+  display: flex;
+
+input{
+  background-color: blanchedalmond;
+  border-radius: 15px;
+}
+
+button{
+  border-radius: 15px;
+  background-color: green;
+  
+}
 `
 
-export default function App() {
+export default function App(props) {
 
   const [message, setMessages] = useState([{ }])
-  const [inputUsers, setInputUsers] = useState(" ")
-  const [inputMessageValue, setInputMessageValue] = useState(" ")
+  const [users, setUsers] = useState(" ")
+  const [messageValue, setMessageValue] = useState(" ")
 
-  const onChangeInputUser = (e) => {
-    setInputUsers(e.targe.value)
+  const handleUser = (e) => {
+    setUsers(e.target.value)
+  }
+  const handleMessage = (e) => {
+    setMessageValue(e.target.value)
   }
 
-  const onChangeInputMessage = (e) => {
-    setInputMessageValue(e.targe.value)
+  const addMessage = () => {
+    const messages = {
+      users,
+      messageValue
+
+    }
+
+    const newMessages = [...message, messages]
+    setMessages(newMessages)
   }
-
-  const newMessage = {
-    user: inputUsers,
-    message: inputMessageValue
-  }
-
-  const newMessages = [...message, newMessage]
-
-  const attMessages = () => {
-   setMessages(newMessages)
-   setInputUsers( " ")
-   setInputMessageValue(" ")
-  }
-
-  const messageList = message.map((messages, index) => {
-      
-    return(
-      
-      <ChatList key={index}
-      nameUSer = {messages.user}
-      valueMessage = {messages.message}
-      />
-      
-    )
-    
-  })
 
   return (
     <MainContainer>
-      
-      <div>
-        {messageList}
-      </div>
 
-      <div>
+      {message.map((messages) => {
+      
+        return(
+              
+          <ChatList>
+
+            <h3>{messages.users}</h3>
+            <p>{messages.messageValue}</p>
+
+          </ChatList>
+              
+        )
+            
+      })}
+
+      <CardInputs>
+       
         <input
-          value={inputUsers}
-          onChange={onChangeInputUser}
-          placeholder={"User:"}
+          value={users}
+          onChange={handleUser}
+          placeholder={"User"}
           type="text"
-        >User</input>
+        />
           
         <input
-          value={inputMessageValue}
-          onChange={onChangeInputMessage}
-          placeholder={"Message:"}
+          value={messageValue}
+          onChange={handleMessage}
+          placeholder={"Message"}
           type="text"
-        >Message</input>
+        />
         
-        <button onClick={attMessages}>Send</button>
-      </div>
+        <button onClick={addMessage}>Send</button>
+      </CardInputs>
 
     </MainContainer>
   );
