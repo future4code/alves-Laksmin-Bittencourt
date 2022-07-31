@@ -1,16 +1,19 @@
 import './App.css';
 import { useState } from 'react';
-import ChatList from './Components/ChatPage/ChatList.js';
 import styled from 'styled-components';
+import ChatList from './Components/ChatPage/ChatList';
+import fundoDeTela from './img/fundoDeTela.jpg';
+
 
 const MainContainer = styled.main`
-  border: solid black 5px;
+  border: solid green 10px;
   background-color: black;
-  border-radius: 10px;
+  border-radius: 50px;
   width: 500px;
   height: 550px;
   margin-top: 30px;
   margin-left: 405px;
+  position: relative;
 `
 const CardInputs = styled.div`
   background-color: green;
@@ -18,84 +21,96 @@ const CardInputs = styled.div`
   border-radius: 15px;
   height: 45px;
   width: 400px;
-  margin-top: 30px;
+  margin-top: 20px;
   margin-left: 45px;
   display: flex;
+  text-align: center;
 
 input{
-  background-color: blanchedalmond;
+  background-color: #bdaead;
+  border: solid #181717 2px;
   border-radius: 15px;
 }
 
 button{
+  color: gey;
+  border: solid #181717 2px;
   border-radius: 15px;
-  background-color: green;
-  
+  background-color: #bdaead;
+  width: 50px;
+  text-align: center;
 }
 `
+const MsgBlock = styled.div`
+  background: url(${fundoDeTela});
+  border: solid green 5px;
+  border-radius: 25px;
+  height: 385px;
+  width: 400px;
+  margin-top: 39px;
+  margin-left: 45px;
+`
 
-export default function App(props) {
+function App(props) {
 
-  const [message, setMessages] = useState([{ }])
+  const [message, setMessages] = useState([ ])
+
+  const renderMessage = message.map((item, index) => {
+  
+    return <ChatList key={index}>    nameUser = {item.nameUser} messageUser = {item.msgValue}   </ChatList>
+               
+  })  
+
   const [users, setUsers] = useState(" ")
   const [messageValue, setMessageValue] = useState(" ")
 
-  const handleUser = (e) => {
+  const addMessage = () => {
+
+    let messages = {
+      nameUser: users,
+      msgValue: messageValue
+    }  
+
+    let copiaMessages = [...message, messages]
+
+    setMessages(copiaMessages)
+  }
+
+  const onChangeUser = (e) => {
     setUsers(e.target.value)
   }
-  const handleMessage = (e) => {
+
+  const onChangeMessageValue = (e) => {
     setMessageValue(e.target.value)
-  }
-
-  const addMessage = () => {
-    const messages = {
-      users,
-      messageValue
-
-    }
-
-    const newMessages = [...message, messages]
-    setMessages(newMessages)
   }
 
   return (
     <MainContainer>
 
-      {message.map((messages) => {
-      
-        return(
-              
-          <ChatList>
-
-            <h3>{messages.users}</h3>
-            <p>{messages.messageValue}</p>
-
-          </ChatList>
-              
-        )
-            
-      })}
+      <MsgBlock>
+        {renderMessage}
+      </MsgBlock>
 
       <CardInputs>
        
         <input
           value={users}
-          onChange={handleUser}
+          onChange={onChangeUser}
           placeholder={"User"}
-          type="text"
+          
         />
           
         <input
           value={messageValue}
-          onChange={handleMessage}
+          onChange={onChangeMessageValue}
           placeholder={"Message"}
-          type="text"
+          
         />
         
-        <button onClick={addMessage}>Send</button>
+        <button onClick={addMessage}>SEND</button>
       </CardInputs>
 
     </MainContainer>
   );
 }
-
+export default App;

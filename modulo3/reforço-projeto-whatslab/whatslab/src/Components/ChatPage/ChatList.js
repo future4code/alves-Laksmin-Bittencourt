@@ -1,37 +1,37 @@
 import React from "react";
 import styled from "styled-components";
 
-const CardChat = styled.div`
-background-color: blanchedalmond;
-border: solid black 3px;
-border-radius: 15px;
-width: 400px;
-height: 400px;
-margin-top: 30px;
-margin-left: 49px;
-`
 const CardMsg = styled.div`
-border: solid black 1px;
+border: solid black 2px;
+border-radius: 15px;
 display: flex;
 flex-direction: column;
+margin-top: 15px;
+margin-left: 23px;
+margin-right: 10px;
+width: 350px;
+height: 350px;
+position: absolute;
 
+h3{
+    color: black;
+}
+
+p{
+    color: grey;
+}
 `
 
 function ChatList(props) {
-    
 
     return(
 
-        <CardChat>
-            
-            <CardMsg>
-                <h3>{props.nameUser}</h3>
-                <p>{props.valueMessage}</p>
-            </CardMsg>
+        <CardMsg>
+            <h3>{props.nameUser}</h3>
+            <p>{props.msgValue}</p>
+        </CardMsg>
 
-        </CardChat>
     )
 
 }
-
 export default ChatList;
