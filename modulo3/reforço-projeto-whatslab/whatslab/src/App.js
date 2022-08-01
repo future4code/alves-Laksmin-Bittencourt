@@ -1,7 +1,7 @@
 import './App.css';
 import { useState } from 'react';
 import styled from 'styled-components';
-import ChatList from './Components/ChatPage/ChatList';
+import ChatList from './Components/ChatPage/ChatList.js';
 import fundoDeTela from './img/fundoDeTela.jpg';
 
 
@@ -33,7 +33,6 @@ input{
 }
 
 button{
-  color: gey;
   border: solid #181717 2px;
   border-radius: 15px;
   background-color: #bdaead;
@@ -51,44 +50,49 @@ const MsgBlock = styled.div`
   margin-left: 45px;
 `
 
-function App(props) {
+function App() {
 
-  const [message, setMessages] = useState([ ])
-
-  const renderMessage = message.map((item, index) => {
-  
-    return <ChatList key={index}>    nameUser = {item.nameUser} messageUser = {item.msgValue}   </ChatList>
-               
-  })  
+  const [message, setMessages] = useState([ ]) 
 
   const [users, setUsers] = useState(" ")
-  const [messageValue, setMessageValue] = useState(" ")
-
-  const addMessage = () => {
-
-    let messages = {
-      nameUser: users,
-      msgValue: messageValue
-    }  
-
-    let copiaMessages = [...message, messages]
-
-    setMessages(copiaMessages)
-  }
+  const [messageValue, setMessageValue] = useState (" ")
 
   const onChangeUser = (e) => {
     setUsers(e.target.value)
+    console.log(users)
   }
 
   const onChangeMessageValue = (e) => {
     setMessageValue(e.target.value)
+    console.log(messageValue)
+
   }
+
+  const attChat = () => {
+
+    const messages = {
+      nameUser: users,
+      msgValue: messageValue
+    }  
+  
+    const newMessages = [...message, messages]
+    setMessages(newMessages)
+    setUsers(" ")
+    setMessageValue(" ")
+  }
+
+  const renderMessage = message.map((item, index) => {
+  
+    return <ChatList key={index} nameUser={item.nameUser} msgValue={item.msgValue}/>
+    
+          
+  }) 
 
   return (
     <MainContainer>
 
       <MsgBlock>
-        {renderMessage}
+        {renderMessage} 
       </MsgBlock>
 
       <CardInputs>
@@ -96,18 +100,18 @@ function App(props) {
         <input
           value={users}
           onChange={onChangeUser}
-          placeholder={"User"}
+          placeholder="User"
           
         />
           
         <input
           value={messageValue}
           onChange={onChangeMessageValue}
-          placeholder={"Message"}
+          placeholder="Message"
           
         />
         
-        <button onClick={addMessage}>SEND</button>
+        <button onClick={attChat}>SEND</button>
       </CardInputs>
 
     </MainContainer>
