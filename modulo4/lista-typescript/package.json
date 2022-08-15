@@ -4,21 +4,15 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start1": "tsc && node ./build/exercicio1.js",
-    "start2": "tsc && node ./build/exercicio2.js",
-    "start3": "tsc && node ./build/exercicio3.js",
-    "start4": "tsc && node ./build/exercicio4.js",
-    "start5": "tsc && node ./build/exercicio5.js",
-    "start6": "tsc && node ./build/exercicio6.js",
-    "start7": "tsc && node ./build/exercicio7.js",
-    "start8": "tsc && node ./build/exercicio8.js",
-    "start9": "tsc && node ./build/exercicio9.js",
-    "start10": "tsc && node ./build/exercicio10.js",
-    "start11": "tsc && node ./build/exercicio11.js"
+    "exercicio1": "tsc && node ./build/ex1.js",
+    "exercicio2": "tsc && node ./build/ex2.js",
+    "exercicio3": "tsc && node ./build/ex3.js",
+    "exercicio4": "tsc && node ./build/ex4.js",
+    "exercicio5": "tsc && node ./build/ex5.js",
+    "exercicio6": "tsc && node ./build/ex6.js"
+
   },
-  "author": "Laksmin Monteiro Bittencourt",
-  "license": "ISC",
-  "dependencies": {
-    "typescript": "^4.7.4"
-  }
+  "keywords": [],
+  "author": "Laksmin Monteiro bittencourt",
+  "license": "ISC"
 }
