@@ -1,0 +1,18 @@
+{
+  "name": "lista-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "exercicio1": "tsc && node ./build/ex1.js",
+    "exercicio2": "tsc && node ./build/ex2.js",
+    "exercicio3": "tsc && node ./build/ex3.js",
+    "exercicio4": "tsc && node ./build/ex4.js",
+    "exercicio5": "tsc && node ./build/ex5.js",
+    "exercicio6": "tsc && node ./build/ex6.js"
+
+  },
+  "keywords": [],
+  "author": "Laksmin Monteiro bittencourt",
+  "license": "ISC"
+}
