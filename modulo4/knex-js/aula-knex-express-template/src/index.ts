@@ -25,4 +25,4 @@ app.get("/users/:id", async (req: Request, res: Response) => {
         // console.log(error.message)
       res.status(500).send("Unexpected error")
     }
-  }) 
+}) 
