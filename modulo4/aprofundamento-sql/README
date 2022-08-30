@@ -1,0 +1,147 @@
+Exercicios de aprofundamento em Sql:
+
+Além de criar e ler as tabelas, é muito importante que entendamos também como atualizar e deletar. Inclusive, essas 4 operações têm um nome muito famoso que vocês com certeza irão ouvir no dia a dia do trabalho: CRUD. Quando falamos que vamos fazer um CRUD, queremos dizer que vamos fazer alguma aplicação que cria (Create), lê (Read), atualiza (Update) e deleta (Delete) algum tipo de informação.
+
+No MySQL, existem mais dois operadores que nos permitiram fazer o CRUD de qualquer coisa. O primeiro deles é o `UPDATE`. A query abaixo muda o nome do ator com id `123` para `Moacyr Franco`:
+
+```sql
+UPDATE Actor
+SET name = "Moacyr Franco"
+WHERE id = "123"
+```
+
+a) *Escreva uma query que atualize o nome e a data de nascimento do ator com o id `003`*
+
+b) *Escreva uma query que atualize o nome da atriz `Juliana Paes` para `JULIANA PAES`. Então, escreva outra query para voltar ao nome anterior.*
+
+c) *Escreva uma query que atualize todas as informações do ator com o id `005`*
+
+d) *Escreva uma query em que você tente atualizar um dado da tabela que não existe (com um id inválido, por exemplo). Teste, anote e explique o resultado.*
+
+- Exercício 3
+    
+    Para finalizar o CRUD, vamos ver o D: `DELETE`. Esse operador permite deletar toda uma linha de uma tabela, seria como apagar um elemento dela. 
+    
+    Por exemplo, se quisermos apagar o ator com o nome `Tony Ramos`
+    
+    ```sql
+    DELETE FROM Actor WHERE name = "Tony Ramos"
+    ```
+    
+    a) *Escreva uma query que apague a atriz com o nome `Fernanda Montenegro`*
+    
+    b) *Escreva uma query que apague todos os atores (do gênero `male`) com o salário maior do que R$1.000.000,00*
+
+    O MySQL permite que façamos queries cujo resultado final é alguma manipulação em relação aos dados salvos. Essa manipulação é dada através de uma **função MySQL**. O exemplo mais clássico é a função COUNT, que permite contar a quantidade de elementos. Por exemplo, se quisermos contar todos os atores, poderíamos fazer assim:
+
+    ```sql
+    SELECT COUNT(*) FROM Actor
+    ```
+    
+    Ou, então, poderíamos ver a quantidade de atrizes no nosso banco, colocando uma condição para entrar na contagem:
+    
+    ```sql
+    SELECT COUNT(*) FROM Actor WHERE gender = "female"
+    ```
+    
+    Para encerrar os nossos exemplos, vamos falar da função AVG ("Average" - média em inglês) que permite calcular a média de alguma das colunas dos nossos dados. Por exemplo, a query abaixo devolve a média dos salários dos atores
+    
+    ```sql
+    SELECT AVG(salary) FROM Actor
+    ```
+    
+    Existem outras funções, tais como: `MAX` e `MIN` que permitem determinar os valores máximos e mínimos de uma coluna.
+    
+    a) *Escreva uma query que pegue o maior salário de todos os atores e atrizes*
+    
+    b) *Escreva uma query que pegue o menor salário das atrizes*
+    
+    c) *Escreva uma query que pegue a quantidade de atrizes*
+    
+    d) *Escreva uma query que pegue a soma de todos os salários*
+
+    Para finalizar o que vimos na aula, temos que treinar as operações indicadas por `LIMIT`, `ORDER BY` e `GROUP BY`
+
+    O `LIMIT`, como o próprio nome sugere, limita a quantidade de dados retornados. Se quisermos somente 3 atores da tabela:
+    
+    ```sql
+    SELECT * FROM Actor LIMIT 3
+    ```
+    
+    `ORDER BY` permite que ordenemos os dados dependendo de alguma coluna da tabela. Podemos dizer se queremos na ordem crescente (`ASC`) ou decrescente (`DESC`). A sintaxe é: `ORDER BY coluna ASC/DESC`. Se quisermos os atores em ordem alfabética:
+    
+    ```sql
+    SELECT * FROM Actor ORDER BY name ASC
+    ```
+    
+    Podemos juntar com o `LIMIT` e pegarmos os 4 primeiros atores (em ordem alfabética):
+    
+    ```sql
+    SELECT * FROM Actor ORDER BY name ASC LIMIT 4
+    ```
+    
+    Até pegar somente as 4 primeiras atrizes em ordem alfabética:
+    
+    ```sql
+    SELECT * FROM Actor
+    WHERE gender = 'female'
+    ORDER BY name ASC
+    LIMIT 4
+    ```
+    
+    O último é um operador que permite agrupar os dados em relação a alguma coluna da tabela: `GROUP BY`. Ele normalmente é usado junto com algumas das funções que já vimos: `AVG`, `COUNT`, `SUM`, etc. A query abaixo retorna a quantidade de atores e atrizes na tabela (ou seja, em relação ao `gender`)
+    
+    ```sql
+    SELECT COUNT(*), gender
+    FROM Actor
+    GROUP BY gender
+    ```
+    
+    a) *Releia a última query. Teste-a. Explique o resultado com as suas palavras*
+    
+    b) *Faça uma query que retorne somente o id e o nome dos atores em ordem decrescente alfabética*
+    
+    c) *Faça uma query que retorne todos os atores ordenados pelo salário*
+    
+    d) *Faça uma query que retorne os atores com os três maiores salarios*
+    
+    e) *Faça uma query que retorne a média de salário por gênero*
+
+    Você já pegou o padrão né? Primeiro fazemos algo guiado e depois deixamos você fazer a sós!
+
+    a) *Altere a tabela de `Movie` e adicione um novo parâmetro: `playing_limit_date` que indique a data limite em que o filme será passado no cinema.* 
+    
+    b) *Altere a tabela de `Movie` para que o parâmetro `rating` possa aceitar valores não inteiros, como, por exemplo, uma avaliação `8.5`.*
+    
+    c) *Atualize dois filmes de tal forma que tenhamos um que ainda esteja em cartaz e um que já tenha saído*
+    
+    d) *Delete algum dos filmes, mas guarde o id. Tente fazer uma query para atualizar a sinopse desse filme que você acabou de deletar (usando o mesmo id). Anote o resultado e explique.*
+    
+    - Dicas
+        
+        a)
+        
+        ```sql
+        ALTER TABLE Movie ADD playing_limit_date DATE;
+        ```
+        
+        b)
+        
+        ```sql
+        ALTER TABLE Movie CHANGE rating rating FLOAT;
+        ```
+        
+        c) Uma das queries
+        
+        ```sql
+        UPDATE Movie
+        SET
+            playing_limit_date = "2020-12-31"
+        WHERE id = "001"
+        ```
+        
+        d)
+        
+        ```sql
+        DELETE FROM Movie WHERE id = "001"
+        ```
