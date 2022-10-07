@@ -28,16 +28,47 @@ class Migrations extends BaseDatabase {
 
     createTables = async () => {
         await BaseDatabase.connection.raw(`
-        DROP TABLE IF EXISTS ${UserDatabase.TABLE_USERS};
-        
-        CREATE TABLE IF NOT EXISTS ${UserDatabase.TABLE_USERS}(
+            DROP TABLE IF EXISTS Amb_Orders_Order_Item;
+            DROP TABLE IF EXISTS Amb_Order_Item;
+            DROP TABLE IF EXISTS Amb_Orders;
+            DROP TABLE IF EXISTS Amb_Pizzas_Ingredientes;
+            DROP TABLE IF EXISTS Amb_Ingredientes;
+            DROP TABLE IF EXISTS Amb_Pizzas;
+
+            CREATE TABLE IF NOT EXISTS Amb_Pizzas (
+            name VARCHAR(255) PRIMARY KEY,
+            price DECIMAL(3, 2) NOT NULL 
+            );
+            
+            CREATE TABLE IF NOT EXISTS Amb_Ingredientes (
+            name VARCHAR(255) PRIMARY KEY
+            );
+            
+            CREATE TABLE IF NOT EXISTS Amb_Pizzas_Ingredientes (
+            pizza_name VARCHAR(255) NOT NULL,
+            ingrediente_name VARCHAR(255) NOT NULL,
+            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+            FOREIGN KEY (ingrediente_name) REFERENCES Amb_Ingredientes (name)
+            );
+            
+            CREATE TABLE IF NOT EXISTS Amb_Orders (
+            id VARCHAR(255) PRIMARY KEY
+            );
+            
+            CREATE TABLE IF NOT EXISTS Amb_Order_Item (
             id VARCHAR(255) PRIMARY KEY,
-            name VARCHAR(255) NOT NULL,
-            email VARCHAR(255) NOT NULL UNIQUE,
-            password VARCHAR(255) NOT NULL,
-            role ENUM("NORMAL", "ADMIN") DEFAULT "NORMAL" NOT NULL
-        );
-        `)
+            pizza_name VARCHAR(255) NOT NULL,
+            quantity TINYINT,
+            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
+            );
+            
+            CREATE TABLE IF NOT EXISTS Amb_Orders_Order_Item (
+            order_id VARCHAR(255) NOT NULL,
+            item_id VARCHAR(255) NOT NULL,
+            FOREIGN KEY (order_id) REFERENCES Amb_Orders (id)
+            );
+        `)  
+            
     }
 
     insertData = async () => {
