@@ -1,14 +1,18 @@
-export enum USER_ROLES {
-    NORMAL = "NORMAL",
-    ADMIN = "ADMIN"
+export interface IPizzaDB {
+    name: string,
+    price: number
+
 }
 
-export interface IUserDB {
-    id: string,
-    name: string,
-    email: string,
-    password: string,
-    role: USER_ROLES
+export interface IIngredientesDB {
+    name: string
+
+}
+
+export interface IPizzasIngredientesDB {
+    pizza_name: string,
+    ingrediente_name: string
+
 }
 
 export class User {

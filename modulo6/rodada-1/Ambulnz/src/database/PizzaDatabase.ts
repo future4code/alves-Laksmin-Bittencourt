@@ -1,8 +1,9 @@
-import { IUserDB, User } from "../models/User"
 import { BaseDatabase } from "./BaseDatabase"
 
-export class UserDatabase extends BaseDatabase {
-    public static TABLE_USERS = "Template_Users"
+export class PizzaDatabase extends BaseDatabase {
+    public static TABLE_PIZZAS = "Amb_Pizzas"
+    public static TABLE_INGREDIENTES = "Amb_Ingredientes"
+    public static TABLE_PIZZAS_INGREDIENTES = "Amb_Pizzas_Ingredientes"
 
     public toUserDBModel = (user: User): IUserDB => {
         const userDB: IUserDB = {

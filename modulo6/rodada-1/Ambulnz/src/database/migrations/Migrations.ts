@@ -1,6 +1,7 @@
 import { BaseDatabase } from "../BaseDatabase"
-import { UserDatabase } from "../UserDatabase"
-import { users } from "./data"
+import { PizzaDatabase } from "../PizzaDatabase"
+// import { UserDatabase } from "../UserDatabase"
+// import { users } from "./data"
 
 class Migrations extends BaseDatabase {
     execute = async () => {
@@ -28,12 +29,11 @@ class Migrations extends BaseDatabase {
 
     createTables = async () => {
         await BaseDatabase.connection.raw(`
-            DROP TABLE IF EXISTS Amb_Orders_Order_Item;
             DROP TABLE IF EXISTS Amb_Order_Item;
             DROP TABLE IF EXISTS Amb_Orders;
-            DROP TABLE IF EXISTS Amb_Pizzas_Ingredientes;
-            DROP TABLE IF EXISTS Amb_Ingredientes;
-            DROP TABLE IF EXISTS Amb_Pizzas;
+            DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTES};
+            DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_INGREDIENTES};
+            DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS};
 
             CREATE TABLE IF NOT EXISTS Amb_Pizzas (
             name VARCHAR(255) PRIMARY KEY,
@@ -61,20 +61,15 @@ class Migrations extends BaseDatabase {
             quantity TINYINT,
             FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
             );
-            
-            CREATE TABLE IF NOT EXISTS Amb_Orders_Order_Item (
-            order_id VARCHAR(255) NOT NULL,
-            item_id VARCHAR(255) NOT NULL,
-            FOREIGN KEY (order_id) REFERENCES Amb_Orders (id)
-            );
+
         `)  
             
     }
 
     insertData = async () => {
-        await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
-            .insert(users)
+        // await BaseDatabase
+        //     .connection(UserDatabase.TABLE_USERS)
+        //     .insert(users)
     }
 }
 
