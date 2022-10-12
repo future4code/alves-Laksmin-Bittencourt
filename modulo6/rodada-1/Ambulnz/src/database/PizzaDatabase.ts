@@ -1,3 +1,4 @@
+import { IPizzaDB, IPizzasIngredientesDB, Pizza } from "../models/Pizza"
 import { BaseDatabase } from "./BaseDatabase"
 
 export class PizzaDatabase extends BaseDatabase {
@@ -5,32 +6,38 @@ export class PizzaDatabase extends BaseDatabase {
     public static TABLE_INGREDIENTES = "Amb_Ingredientes"
     public static TABLE_PIZZAS_INGREDIENTES = "Amb_Pizzas_Ingredientes"
 
-    public toUserDBModel = (user: User): IUserDB => {
-        const userDB: IUserDB = {
-            id: user.getId(),
-            name: user.getName(),
-            email: user.getEmail(),
-            password: user.getPassword(),
-            role: user.getRole()
+
+
+    public toPizzaDBModel = (pizza: Pizza): IPizzaDB => {
+        return {
+            name: pizza.getName(),
+            price: pizza.getPrice()
         }
-
-        return userDB
     }
 
-    public findByEmail = async (email: string): Promise<IUserDB | undefined> => {
-        const result: IUserDB[] = await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
+    public getPizzas = async (): Promise<IPizzaDB[]> => {
+        const result: IPizzaDB[] = await BaseDatabase
+            .connection(PizzaDatabase.TABLE_PIZZAS)
             .select()
-            .where({ email })
 
-        return result[0]
+        return result
     }
 
-    public createUser = async (user: User): Promise<void> => {
-        const userDB = this.toUserDBModel(user)
+    public getIngredientes = async (pizzaName: string): Promise<string[]> => {
+        const result: IPizzasIngredientesDB[] = await BaseDatabase
+            .connection(PizzaDatabase.TABLE_PIZZAS_INGREDIENTES)
+            .select("ingredientes_name")
+            .where({ pizza_name: pizzaName})
 
-        await BaseDatabase
-            .connection(UserDatabase.TABLE_USERS)
-            .insert(userDB)
+        return result.map(item => item.ingrediente_name)
     }
+
+
+//     public createUser = async (user: User): Promise<void> => {
+//         const userDB = this.toUserDBModel(user)
+
+//         await BaseDatabase
+//             .connection(UserDatabase.TABLE_USERS)
+//             .insert(userDB)
+//     }
 }
