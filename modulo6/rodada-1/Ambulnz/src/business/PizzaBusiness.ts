@@ -32,16 +32,44 @@ export class PizzaBusiness {
 
         const response: IGetPizzasOutputDTO = {
             message: "Pizzas retornadas com sucesso",
-            pizzas: pizzas.map((pizza) => {
-                return {
-                    name: pizza.getName(),
-                    price: pizza.getPrice(),
-                    ingredientes: pizza.getIngredientes()
-                }
-            })
+            pizzas: pizzas.map((pizza) => ({
+                name: pizza.getName(),
+                price: pizza.getPrice(),
+                ingredientes: pizza.getIngredientes()
+            }))
         }
 
         return response
+    }
+
+    public getPizzasV2 = async () => {
+  
+        const rawPizzasFormatted = await this.pizzaDatabase.getPizzasFormatted()
+
+        const pizzas: any = []
+
+        for(let rawPizza of rawPizzasFormatted) {
+            const pizzaAlreadyOnArray = pizzas
+            .find((pizza: any) => pizza.name === rawPizza.name)
+
+            if (pizzaAlreadyOnArray) {
+                pizzaAlreadyOnArray.ingredientes.push(rawPizza.ingrediente_name)
+
+            } else {
+                const pizza = {
+                    name: rawPizza.name,
+                    price: rawPizza.price,
+                    ingrediente: [rawPizza.ingrediente_name]
+                }
+
+                pizzas.push(pizza)
+            }
+
+        }
+
+        return {
+            pizzas
+        }
     }
     
 }

@@ -26,7 +26,7 @@ export class PizzaDatabase extends BaseDatabase {
     public getIngredientes = async (pizzaName: string): Promise<string[]> => {
         const result: IPizzasIngredientesDB[] = await BaseDatabase
             .connection(PizzaDatabase.TABLE_PIZZAS_INGREDIENTES)
-            .select("ingredientes_name")
+            .select("ingrediente_name")
             .where({ pizza_name: pizzaName})
 
         return result.map(item => item.ingrediente_name)
@@ -40,4 +40,15 @@ export class PizzaDatabase extends BaseDatabase {
 //             .connection(UserDatabase.TABLE_USERS)
 //             .insert(userDB)
 //     }
+
+    public getPizzasFormatted = async (): Promise<any> => {
+        const [result]: IPizzaDB[] = await BaseDatabase
+            .connection.raw(`
+                SELECT * FROM Amb_Pizzas
+                JOIN Amb_Pizzas_Ingredientes ON Amb_Pizzas_Ingredientes.pizza_name = Amb_Pizzas.name
+            `)
+
+        return result
+    }
+
 }

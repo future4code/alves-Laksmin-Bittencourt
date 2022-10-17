@@ -3,3 +3,6 @@ GET http://localhost:3003/api/ping
 
 ### Get pizzas
 GET http://localhost:3003/api/pizzas
+
+### Get pizzas V2
+GET http://localhost:3003/api/pizzas/V2
