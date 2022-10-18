@@ -15,73 +15,52 @@ export interface IPizzasIngredientesDB {
 
 }
 
-export class User {
+export class Pizza {
     constructor(
-        private id: string,
         private name: string,
-        private email: string,
-        private password: string,
-        private role: USER_ROLES
+        private price: number,
+        private ingredientes: string[]
     ) {}
-
-    public getId = () => {
-        return this.id
-    }
 
     public getName = () => {
         return this.name
     }
 
-    public getEmail = () => {
-        return this.email
+    public getPrice = () => {
+        return this.price
     }
 
-    public getPassword = () => {
-        return this.password
-    }
-
-    public getRole = () => {
-        return this.role
-    }
-
-    public setId = (newId: string) => {
-        this.id = newId
+    public getIngredientes = () => {
+        return this.ingredientes
     }
 
     public setName = (newName: string) => {
         this.name = newName
     }
 
-    public setEmail = (newEmail: string) => {
-        this.email = newEmail
+    public setPrice = (newPrice: number) => {
+        this.price = newPrice
     }
 
-    public setPassword = (newPassword: string) => {
-        this.password = newPassword
+    public setIngredientes = (newIngredientes: string[]) => {
+        this.ingredientes = newIngredientes
     }
 
-    public setRole = (newRole: USER_ROLES) => {
-        this.role = newRole
+    public addIngredientes = (newIngrediente: string) => {
+        this.ingredientes.push(newIngrediente)
+    }
+
+    public removeIngrediente = (ingredienteToRemove: string) => {
+        return this.ingredientes.filter(ingredientes => ingredientes !== ingredienteToRemove)
     }
 }
 
-export interface ISignupInputDTO {
-    name: string,
-    email: string,
-    password: string
-}
-
-export interface ISignupOutputDTO {
+export interface IGetPizzasOutputDTO {
     message: string,
-    token: string
+    pizzas: {
+        name: string,
+        price: number,
+        ingredientes: string[]
+    }[]
 }
 
-export interface ILoginInputDTO {
-    email: string,
-    password: string
-}
-
-export interface ILoginOutputDTO {
-    message: string,
-    token: string
-}

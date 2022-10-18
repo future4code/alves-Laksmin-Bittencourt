@@ -1,7 +1,7 @@
 import { BaseDatabase } from "../BaseDatabase"
+import { OrderDatabase } from "../OrderDatabase"
 import { PizzaDatabase } from "../PizzaDatabase"
-// import { UserDatabase } from "../UserDatabase"
-// import { users } from "./data"
+import { ingredientesSeed, pizzasIngredientesSeed, pizzasSeed } from "./data"
 
 class Migrations extends BaseDatabase {
     execute = async () => {
@@ -10,7 +10,7 @@ class Migrations extends BaseDatabase {
             await this.createTables()
             console.log("Tables created successfully.")
 
-            console.log("Populating tables...")
+            console.log("Populating tables with seed...")
             await this.insertData()
             console.log("Tables populated successfully.")
 
@@ -29,47 +29,56 @@ class Migrations extends BaseDatabase {
 
     createTables = async () => {
         await BaseDatabase.connection.raw(`
-            DROP TABLE IF EXISTS Amb_Order_Item;
-            DROP TABLE IF EXISTS Amb_Orders;
+        
+            DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDER_ITEM};
+            DROP TABLE IF EXISTS ${OrderDatabase.TABLE_ORDERS};
             DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTES};
             DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_INGREDIENTES};
             DROP TABLE IF EXISTS ${PizzaDatabase.TABLE_PIZZAS};
 
-            CREATE TABLE IF NOT EXISTS Amb_Pizzas (
-            name VARCHAR(255) PRIMARY KEY,
-            price DECIMAL(3, 2) NOT NULL 
+            CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS} (
+                name VARCHAR(255) PRIMARY KEY,
+                price DECIMAL(3,2) NOT NULL
             );
             
-            CREATE TABLE IF NOT EXISTS Amb_Ingredientes (
-            name VARCHAR(255) PRIMARY KEY
+            CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_INGREDIENTES} (
+                name VARCHAR(255) PRIMARY KEY
             );
             
-            CREATE TABLE IF NOT EXISTS Amb_Pizzas_Ingredientes (
-            pizza_name VARCHAR(255) NOT NULL,
-            ingrediente_name VARCHAR(255) NOT NULL,
-            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
-            FOREIGN KEY (ingrediente_name) REFERENCES Amb_Ingredientes (name)
+            CREATE TABLE IF NOT EXISTS ${PizzaDatabase.TABLE_PIZZAS_INGREDIENTES} (
+                pizza_name VARCHAR(255) NOT NULL,
+                ingrediente_name VARCHAR(255) NOT NULL,
+                FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+                FOREIGN KEY (ingrediente_name) REFERENCES Amb_Ingredientes (name)
             );
             
-            CREATE TABLE IF NOT EXISTS Amb_Orders (
-            id VARCHAR(255) PRIMARY KEY
+            CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDERS} (
+                id VARCHAR(255) PRIMARY KEY
             );
             
-            CREATE TABLE IF NOT EXISTS Amb_Order_Item (
-            id VARCHAR(255) PRIMARY KEY,
-            pizza_name VARCHAR(255) NOT NULL,
-            quantity TINYINT,
-            FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name)
+            CREATE TABLE IF NOT EXISTS ${OrderDatabase.TABLE_ORDER_ITEM} (
+                id VARCHAR(255) PRIMARY KEY,
+                pizza_name VARCHAR(255) NOT NULL,
+                quantity TINYINT,
+                order_id VARCHAR(255) NOT NULL,
+                FOREIGN KEY (pizza_name) REFERENCES Amb_Pizzas (name),
+                FOREIGN KEY (order_id) REFERENCES Amb_Orders (id)
             );
-
-        `)  
-            
+        `)
     }
 
     insertData = async () => {
-        // await BaseDatabase
-        //     .connection(UserDatabase.TABLE_USERS)
-        //     .insert(users)
+        await BaseDatabase
+            .connection(PizzaDatabase.TABLE_PIZZAS)
+            .insert(pizzasSeed)
+
+        await BaseDatabase
+            .connection(PizzaDatabase.TABLE_INGREDIENTES)
+            .insert(ingredientesSeed)
+
+        await BaseDatabase
+            .connection(PizzaDatabase.TABLE_PIZZAS_INGREDIENTES)
+            .insert(pizzasIngredientesSeed)
     }
 }
 
