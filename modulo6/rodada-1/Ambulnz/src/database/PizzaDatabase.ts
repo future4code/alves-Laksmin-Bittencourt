@@ -42,10 +42,10 @@ export class PizzaDatabase extends BaseDatabase {
 //     }
 
     public getPizzasFormatted = async (): Promise<any> => {
-        const [result]: IPizzaDB[] = await BaseDatabase
+        const [result] = await BaseDatabase
             .connection.raw(`
                 SELECT * FROM Amb_Pizzas
-                JOIN Amb_Pizzas_Ingredientes ON Amb_Pizzas_Ingredientes.pizza_name = Amb_Pizzas.name
+                JOIN Amb_Pizzas_Ingredientes ON Amb_Pizzas_Ingredientes.pizza_name = Amb_Pizzas.name;
             `)
 
         return result

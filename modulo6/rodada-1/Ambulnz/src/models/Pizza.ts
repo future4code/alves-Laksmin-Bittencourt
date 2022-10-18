@@ -61,5 +61,6 @@ export interface IGetPizzasOutputDTO {
         name: string,
         price: number,
         ingredientes: string[]
-    }
+    }[]
 }
+
