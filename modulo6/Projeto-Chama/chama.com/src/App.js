@@ -1,25 +1,27 @@
-import logo from './logo.svg';
-import './App.css';
+import {Header} from "./assets/styles/Headers/HeaderStyle";
+import styled from "styled-components";
 
-function App() {
+
+const FullScreen = styled.div`
+  margin: 0vw;
+  min-height: 100vh;
+  max-width: 100vw;
+  background-color: black;
+`
+
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+   <FullScreen>
+      <Header>
+
+        
+        <h1>Search for a Github user...</h1>
+        <h1>Search</h1>
+        <h1>History</h1>
+        
+      </Header>
+   </FullScreen>
+  )
 }
 
 export default App;
